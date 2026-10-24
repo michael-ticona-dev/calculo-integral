@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Death Star — El volumen del Imperio</title>
+<meta name="description" content="Póster interactivo 3D de geometría y cálculo integral: volumen de una superestructura esférica por el método de discos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="fatal" class="fatal" hidden></div>
+
+<!-- ═══════════════════════════ PÓSTER A3 ═══════════════════════════ -->
+<main class="poster" id="poster"><div class="sheet">
+  <div class="poster-grid" aria-hidden="true"></div>
+
+  <header class="p-head">
+    <div class="p-kicker">
+      <span>LÁMINA I</span><span>SÓLIDOS DE REVOLUCIÓN</span><span>CÁLCULO INTEGRAL</span>
+    </div>
+    <h1 class="p-title">DEATH STAR</h1>
+    <p class="p-sub"><em>Geometría, integración y volumen de una superestructura espacial.</em></p>
+    <dl class="p-meta">
+      <div><dt>Modelo</dt><dd>Esfera ideal · radio <span class="v-R">60</span> km</dd></div>
+      <div><dt>Eje de integración</dt><dd>x ∈ [−R, R]</dd></div>
+      <div><dt>Unidades</dt><dd>km del modelo (ficticios)</dd></div>
+    </dl>
+  </header>
+
+  <!-- HERO 3D -->
+  <section class="hero" id="hero">
+    <canvas id="scene" aria-label="Modelo 3D interactivo de la estación"></canvas>
+    <div class="labels" id="labels"></div>
+
+    <div class="hero-tl">
+      <div class="mode-tag" id="mode-tag">MODO A</div>
+      <div class="mode-title" id="mode-title">EXTERIOR</div>
+      <p class="mode-desc" id="mode-desc">Casco completo: paneles, trinchera ecuatorial y superláser.</p>
+    </div>
+
+    <nav class="modes no-print" id="modes" aria-label="Modo de visualización">
+      <button data-mode="A" class="on"><b>A</b>Exterior</button>
+      <button data-mode="B"><b>B</b>Corte</button>
+      <button data-mode="C"><b>C</b>Interior</button>
+      <button data-mode="D"><b>D</b>Discos</button>
+    </nav>
+
+    <div class="hero-formula" id="hero-formula"></div>
+
+    <div class="hero-br">
+      <div class="scalebar" id="scalebar"><i></i><span>10 km</span></div>
+      <div class="camtools no-print">
+        <button id="btn-zoom-in" title="Acercar">+</button>
+        <button id="btn-zoom-out" title="Alejar">−</button>
+        <button id="btn-reset" title="Vista inicial">⟲</button>
+        <button id="btn-rotate" title="Pausar / reanudar rotación" class="on">❚❚</button>
+      </div>
+    </div>
+    <div class="hint no-print" id="hint">Arrastrar: rotar · Rueda: zoom · Botón derecho: desplazar</div>
+  </section>
+
+  <!-- FILA A: discos + datos -->
+  <section class="row row-a">
+    <article class="card card-discs">
+      <h2><span class="num">01</span>Método de discos · esfera maciza</h2>
+      <div class="split">
+        <figure class="fig">
+          <svg id="svg-discs" viewBox="0 0 296 238" role="img" aria-label="Sección de la esfera con discos de Riemann"></svg>
+          <figcaption>Vista lateral: cada disco de espesor Δx y radio r(x*<sub>i</sub>) aparece como un rectángulo de altura 2r.</figcaption>
+        </figure>
+        <div class="math-col">
+          <p class="lead">Sección en x: <math><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></math>
+          ⇒ <math><mi>r</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msqrt><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></math></p>
+          <math display="block" class="eq">
+            <mi>V</mi><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>R</mi></mrow><mi>R</mi></msubsup><mi>π</mi><msup><mrow><mo>[</mo><mi>r</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>]</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>x</mi>
+            <mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>R</mi></mrow><mi>R</mi></msubsup><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo><mi>d</mi><mi>x</mi>
+          </math>
+          <math display="block" class="eq">
+            <mo>=</mo><mi>π</mi><msubsup><mrow><mo>[</mo><msup><mi>R</mi><mn>2</mn></msup><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mn>3</mn></mfrac><mo>]</mo></mrow><mrow><mo>−</mo><mi>R</mi></mrow><mi>R</mi></msubsup>
+            <mo>=</mo><mi>π</mi><mrow><mo>[</mo><mfrac><mrow><mn>2</mn><msup><mi>R</mi><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>−</mo><mrow><mo>(</mo><mo>−</mo><mfrac><mrow><mn>2</mn><msup><mi>R</mi><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>]</mo></mrow>
+            <mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>R</mi><mn>3</mn></msup><mo>✓</mo>
+          </math>
+          <p class="result">R = <b class="v-R">60</b> km → V = <b class="v-Vext">—</b> km³</p>
+          <p class="riemann">Suma de Riemann (punto medio), N = <b class="v-N">24</b>, <math><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>=</mo><mo>−</mo><mi>R</mi><mo>+</mo><mo>(</mo><mi>i</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>)</mo><mi>Δ</mi><mi>x</mi></math>:</p>
+          <math display="block" class="eq eq-sm"><msub><mi>V</mi><mi>N</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mrow><mo>(</mo><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>)</mo></mrow><mn>2</mn></msup><mo>)</mo><mi>Δ</mi><mi>x</mi></math>
+          <p class="riemann">V<sub>N</sub> = <b class="v-VN">—</b> km³ · error <b class="v-errpct">—</b>
+            <span class="muted">(teoría: <math><mfrac><mn>1</mn><mrow><mn>2</mn><msup><mi>N</mi><mn>2</mn></msup></mrow></mfrac></math> = <span class="v-errth">—</span>)</span></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-data">
+      <h2><span class="num">◈</span>Panel de datos · modelo actual</h2>
+      <table class="data">
+        <tbody>
+          <tr><th>Radio exterior R</th><td><span class="v-R">—</span> km</td></tr>
+          <tr><th>Radio interior r</th><td><span class="v-r">—</span> km</td></tr>
+          <tr><th>Espesor del casco t = R − r</th><td><span class="v-t">—</span> km</td></tr>
+          <tr class="sep"><th>Volumen exterior ⁴⁄₃πR³</th><td><span class="v-Vext">—</span> km³</td></tr>
+          <tr><th>Volumen de la cavidad ⁴⁄₃πr³</th><td><span class="v-Vcav">—</span> km³</td></tr>
+          <tr><th>Volumen del material</th><td><span class="v-Vmat">—</span> km³</td></tr>
+          <tr><th>Fracción de material</th><td><span class="v-frac">—</span></td></tr>
+          <tr class="sep"><th>Volumen del reactor</th><td><span class="v-Vre">—</span> km³</td></tr>
+          <tr><th>Secciones de la aproximación N</th><td><span class="v-N">—</span></td></tr>
+          <tr><th>Suma de Riemann V<sub>N</sub></th><td><span class="v-VN">—</span> km³</td></tr>
+          <tr><th>Error |V<sub>N</sub> − V|</th><td><span class="v-errabs">—</span> km³ (<span class="v-errpct">—</span>)</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Todos los valores se recalculan a partir de los parámetros actuales; ninguno está prefijado.</p>
+    </article>
+  </section>
+
+  <!-- FILA B: casco + reactor -->
+  <section class="row row-b">
+    <article class="card card-shell">
+      <h2><span class="num">02</span>Casco esférico hueco</h2>
+      <div class="split">
+        <figure class="fig fig-sq">
+          <svg id="svg-shell" viewBox="0 0 300 300" role="img" aria-label="Diagrama de corte del casco"></svg>
+        </figure>
+        <div class="math-col">
+          <p class="lead">Capa homogénea entre <math><mi>r</mi></math> y <math><mi>R</mi></math>, espesor <math><mi>t</mi><mo>=</mo><mi>R</mi><mo>−</mo><mi>r</mi></math>. Por arandelas:</p>
+          <math display="block" class="eq eq-sm">
+            <mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+            <mrow><mo>{</mo><mtable columnalign="left">
+              <mtr><mtd><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>r</mi><mn>2</mn></msup><mo>)</mo><mo>,</mo></mtd><mtd><mo>|</mo><mi>x</mi><mo>|</mo><mo>≤</mo><mi>r</mi></mtd></mtr>
+              <mtr><mtd><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo><mo>,</mo></mtd><mtd><mi>r</mi><mo>&lt;</mo><mo>|</mo><mi>x</mi><mo>|</mo><mo>≤</mo><mi>R</mi></mtd></mtr>
+            </mtable></mrow>
+          </math>
+          <math display="block" class="eq eq-xs">
+            <msub><mi>V</mi><mtext>mat</mtext></msub><mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>R</mi></mrow><mi>R</mi></msubsup><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo><mi>d</mi><mi>x</mi><mo>−</mo><mi>π</mi><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>r</mi></mrow><mi>r</mi></msubsup><mo>(</mo><msup><mi>r</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo><mi>d</mi><mi>x</mi>
+          </math>
+          <math display="block" class="eq">
+            <mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>R</mi><mn>3</mn></msup><mo>−</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>r</mi><mn>3</mn></msup><mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>3</mn></msup><mo>−</mo><msup><mi>r</mi><mn>3</mn></msup><mo>)</mo>
+          </math>
+          <p class="result">R = <b class="v-R">—</b>, r = <b class="v-r">—</b>, t = <b class="v-t">—</b> km<br>
+            V<sub>mat</sub> = <b class="v-Vmat">—</b> km³ <span class="muted">(capa fina 4πR²t ≈ <span class="v-Vthin">—</span>)</span></p>
+          <p class="lead obs">Observación: dentro de la cavidad (|x| ≤ r) la arandela tiene área <b>constante</b> π(R² − r²); sólo los dos casquetes |x| &gt; r aportan discos macizos. La suma de ambas partes vuelve a dar ⁴⁄₃π(R³ − r³).</p>
+          <p class="lead obs">Idealización: el casco se modela como una capa esférica homogénea de espesor uniforme t; la trinchera, el superláser y los módulos no se descuentan.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-reactor">
+      <h2><span class="num">03</span>Reactor interior · doble cono con eje hueco</h2>
+      <div class="split split-3">
+        <figure class="fig fig-sq">
+          <svg id="svg-reactor" viewBox="0 0 240 260" role="img" aria-label="Perfil generador del reactor"></svg>
+        </figure>
+        <figure class="fig fig-sq mini3d">
+          <canvas id="reactor-canvas" aria-label="Modelo 3D del reactor"></canvas>
+          <figcaption>Sólido generado por el mismo perfil</figcaption>
+        </figure>
+      </div>
+      <div class="math-col">
+        <p class="lead">Perfil <math><mi>ρ</mi><mo>(</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>a</mi><mo>(</mo><mn>1</mn><mo>−</mo><mo>|</mo><mi>y</mi><mo>|</mo><mo>/</mo><mi>h</mi><mo>)</mo></math> girando sobre el eje y; hueco axial de radio <math><mi>b</mi></math>, hasta <math><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo><mi>h</mi><mo>(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo>/</mo><mi>a</mi><mo>)</mo></math>.</p>
+        <math display="block" class="eq">
+          <msub><mi>V</mi><mtext>r</mtext></msub><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><msub><mi>y</mi><mn>1</mn></msub></msubsup><mrow><mo>[</mo><msup><mi>a</mi><mn>2</mn></msup><msup><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mfrac><mi>y</mi><mi>h</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>b</mi><mn>2</mn></msup><mo>]</mo></mrow><mi>d</mi><mi>y</mi>
+          <mo>=</mo><mn>2</mn><mi>π</mi><mi>h</mi><mrow><mo>(</mo><mfrac><msup><mi>a</mi><mn>2</mn></msup><mn>3</mn></mfrac><mo>−</mo><msup><mi>b</mi><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mn>2</mn><msup><mi>b</mi><mn>3</mn></msup></mrow><mrow><mn>3</mn><mi>a</mi></mrow></mfrac><mo>)</mo></mrow>
+        </math>
+        <p class="result">a = <b class="v-a">—</b>, h = <b class="v-h">—</b>, b = <b class="v-b">—</b> km → V<sub>r</sub> = <b class="v-Vre">—</b> km³
+          <span class="muted">(Simpson n=600: <span class="v-Vre-num">—</span>)</span></p>
+      </div>
+    </article>
+  </section>
+
+  <footer class="p-foot">
+    <ul class="legend">
+      <li><i class="sw sw-hull"></i>Casco (esfera ideal R)</li>
+      <li><i class="sw sw-cav"></i>Cavidad (r)</li>
+      <li><i class="sw sw-cut"></i>Sección de corte</li>
+      <li><i class="sw sw-disc"></i>Discos / integración</li>
+      <li><i class="sw sw-core"></i>Reactor y núcleo</li>
+    </ul>
+    <p class="disclaimer">La esfera de radio R aproxima el casco exterior: paneles, trinchera y superláser no forman parte de la esfera perfecta.
+      Dimensiones ilustrativas en km del modelo, no oficiales. La geometría interior es una interpretación artística y matemática original.
+      Obra de divulgación no oficial; Star Wars es marca de Lucasfilm Ltd.</p>
+  </footer>
+</div></main>
+
+<!-- ═══════════════════════════ PANEL DE CONTROL (solo web) ═══════════════════════════ -->
+<aside class="dock no-print" id="dock" aria-label="Controles de la simulación">
+  <div class="dock-head">
+    <span class="dot"></span> CONSOLA DE SIMULACIÓN
+  </div>
+
+  <section class="ctl">
+    <h3>Exploración</h3>
+    <div class="btns">
+      <button id="btn-dish">◎ Ir al superláser</button>
+      <button id="btn-enter">⤓ Entrar por el superláser</button>
+    </div>
+  </section>
+
+  <section class="ctl">
+    <h3>Casco esférico</h3>
+    <label class="slider"><span>Radio exterior R</span><output id="o-R"></output>
+      <input type="range" id="in-R" min="20" max="150" step="1" value="60"></label>
+    <label class="slider"><span>Espesor t</span><output id="o-t"></output>
+      <input type="range" id="in-t" min="1" max="40" step="0.5" value="9"></label>
+  </section>
+
+  <section class="ctl">
+    <h3>Plano de corte (modo B)</h3>
+    <label class="slider"><span>Posición x = d</span><output id="o-cut"></output>
+      <input type="range" id="in-cut" min="-0.95" max="0.95" step="0.01" value="0.2"></label>
+  </section>
+
+  <section class="ctl">
+    <h3>Reactor (modo C)</h3>
+    <label class="slider"><span>Radio ecuatorial a</span><output id="o-a"></output>
+      <input type="range" id="in-a" min="3" max="20" step="0.5" value="13"></label>
+    <label class="slider"><span>Semialtura h</span><output id="o-h"></output>
+      <input type="range" id="in-h" min="4" max="40" step="0.5" value="22"></label>
+    <label class="slider"><span>Radio del hueco b</span><output id="o-b"></output>
+      <input type="range" id="in-b" min="0" max="10" step="0.25" value="2.5"></label>
+  </section>
+
+  <section class="ctl">
+    <h3>Figura interior</h3>
+    <div class="btns grid2" id="modules">
+      <button data-module="reactor" class="on">Reactor doble cono</button>
+      <button data-module="core">Esfera de energía</button>
+      <button data-module="torus">Anillo toroidal</button>
+      <button data-module="tower">Torre cilíndrica</button>
+    </div>
+    <label class="check"><input type="checkbox" id="in-isolate"> Vista aislada de la figura</label>
+  </section>
+
+  <section class="ctl">
+    <h3>Método de discos (modo D)</h3>
+    <label class="slider"><span>Posición del disco x</span><output id="o-x"></output>
+      <input type="range" id="in-x" min="-1" max="1" step="0.005" value="0.35"></label>
+    <label class="slider"><span>Número de discos N</span><output id="o-N"></output>
+      <input type="range" id="in-N" min="1" max="200" step="1" value="24"></label>
+    <label class="slider"><span>Discos visibles</span><output id="o-build"></output>
+      <input type="range" id="in-build" min="0" max="1" step="0.01" value="1"></label>
+    <div class="btns"><button id="btn-build">▶ Construir el volumen</button></div>
+  </section>
+
+  <section class="ctl">
+    <div class="btns"><button id="btn-print" class="primary">⎙ Imprimir póster A3</button></div>
+    <p class="tiny">La impresión oculta esta consola y los botones de la escena. Formato A3 vertical (297 × 420 mm).</p>
+  </section>
+</aside>
+
+<script src="vendor/three.min.js"></script>
+<script>window.THREE || document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"><\/script>');</script>
+<script src="vendor/OrbitControls.js"></script>
+<script>(window.THREE && THREE.OrbitControls) || document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"><\/script>');</script>
+<script src="script.js"></script>
+</body>
+</html>
