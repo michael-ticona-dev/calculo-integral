@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Death Star — El volumen del Imperio</title>
-<meta name="description" content="Póster interactivo 3D de geometría y cálculo integral: volumen de una superestructura esférica por el método de discos.">
+<title>Que la integral te acompañe</title>
+<meta name="description" content="La geometría de la Estrella de la Muerte: volúmenes calculados mediante integrales. Póster interactivo 3D sobre el método de discos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -20,19 +20,48 @@
 
   <header class="p-head">
     <div class="p-kicker">
-      <span>LÁMINA I</span><span>SÓLIDOS DE REVOLUCIÓN</span><span>CÁLCULO INTEGRAL</span>
+      <span>LÁMINA I</span><span>SÓLIDOS DE REVOLUCIÓN</span><span>CÁLCULO INTEGRAL</span><span class="motto">«Que la integral te acompañe»</span>
     </div>
-    <h1 class="p-title">DEATH STAR</h1>
-    <p class="p-sub"><em>Geometría, integración y volumen de una superestructura espacial.</em></p>
-    <dl class="p-meta">
-      <div><dt>Modelo · 2.ª Estrella de la Muerte</dt><dd>Esfera ideal · R = <span class="v-R">90</span> km · D = <span class="v-D">180</span> km</dd></div>
-      <div><dt>Referencia aproximada</dt><dd>D ≈ 160–200 km · R ≈ 80–100 km</dd></div>
-      <div><dt>Eje de integración</dt><dd>x ∈ [−R, R]</dd></div>
-      <div><dt>Unidades</dt><dd>km (aproximación de referencia, no oficial)</dd></div>
-    </dl>
+    <h1 class="p-title">
+      <span class="t-main">La geometría de la Estrella de la Muerte</span>
+      <span class="t-tail">volúmenes calculados mediante <span class="t-int">∫</span>integrales</span>
+    </h1>
+    <div class="p-side">
+    <p class="p-sub"><em>Modelado geométrico de la segunda Estrella de la Muerte · integrales definidas · simulación tridimensional del método de discos.</em></p>
+    <section class="team" aria-labelledby="team-h">
+      <h2 id="team-h">INTEGRANTES</h2>
+      <ul>
+        <li>Stefano Portugal Monteagudo</li>
+        <li>Bruno Ore Alarcón</li>
+        <li>Sebastián Uscamayta Checa</li>
+        <li>Michael Jesús Ticona Huamán</li>
+      </ul>
+    </section>
+    <p class="p-model">Esfera ideal · R = <b class="v-R">90</b> km · D = <b class="v-D">180</b> km <span class="muted">· referencia, no oficial</span></p>
+    </div>
   </header>
 
-  <!-- HERO 3D -->
+  <!-- FILA HERO: introducción, justificación y objetivos + modelo 3D -->
+  <section class="row row-hero">
+  <div class="intro-col">
+      <article class="card card-txt">
+        <h2><span class="num">I</span>Introducción</h2>
+        <p>Estudiamos el volumen de la segunda Estrella de la Muerte. Su forma es casi una <b>esfera</b>: cada corte plano es un <b>círculo</b> de área conocida, y el <b>cálculo integral</b> suma esos círculos para obtener el volumen total, el de la cavidad y el del material.</p>
+      </article>
+      <article class="card card-txt">
+        <h2><span class="num">II</span>Justificación</h2>
+        <p>Representar un objeto 3D complejo con <b>figuras geométricas</b> lo vuelve medible. Una <b>simulación 3D interactiva</b> muestra qué se integra (la sección 2D) y qué se obtiene (el sólido), y permite comprobar el método.</p>
+      </article>
+      <article class="card card-txt card-obj">
+        <h2><span class="num">III</span>Objetivos</h2>
+        <p><b>General:</b> calcular y comparar volúmenes geométricos de un modelo aproximado de la segunda Estrella de la Muerte mediante integrales y visualización 3D.</p>
+        <ul class="obj">
+          <li>Deducir el volumen de la esfera con el método de discos.</li>
+          <li>Distinguir volumen exterior, cavidad y material.</li>
+          <li>Verificar la convergencia de la suma de Riemann.</li>
+        </ul>
+      </article>
+  </div>
   <section class="hero" id="hero">
     <canvas id="scene" aria-label="Modelo 3D interactivo de la estación"></canvas>
     <div class="labels" id="labels"></div>
@@ -63,6 +92,22 @@
     </div>
     <div class="hint no-print" id="hint">Arrastrar: rotar · Rueda: zoom · Botón derecho: desplazar</div>
   </section>
+  </section>
+
+  <!-- MARCO TEÓRICO -->
+  <section class="card card-theory">
+    <h2><span class="num">IV</span>Marco teórico</h2>
+    <ol class="theory">
+      <li><b>Esfera</b> de centro O y radio R: puntos a distancia R del centro.
+        <math display="block"><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup></math></li>
+      <li><b>Sección circular:</b> el plano x = cte corta la esfera en un círculo de radio <math><mi>r</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msqrt><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></math> y área
+        <math display="block"><mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>π</mi><mi>r</mi><msup><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo></math></li>
+      <li><b>Integral definida:</b> límite de la suma de secciones de espesor Δx cuando N → ∞.
+        <math display="block"><mi>V</mi><mo>=</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi><mo>≈</mo><mo>∑</mo><mi>A</mi><mo>(</mo><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>)</mo><mi>Δ</mi><mi>x</mi></math></li>
+      <li><b>Método de discos:</b> cada rebanada es un cilindro delgado, <math><mi>Δ</mi><mi>V</mi><mo>≈</mo><mi>π</mi><mi>r</mi><msup><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mn>2</mn></msup><mi>Δ</mi><mi>x</mi></math>. Es adecuado porque toda sección de la esfera perpendicular al eje es un círculo exacto.</li>
+      <li><b>Estructura hueca:</b> <math><msub><mi>V</mi><mtext>ext</mtext></msub><mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>R</mi><mn>3</mn></msup></math> encierra todo; la cavidad <math><msub><mi>V</mi><mtext>cav</mtext></msub><mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>r</mi><mn>3</mn></msup></math> está vacía; el material es <math><msub><mi>V</mi><mtext>mat</mtext></msub><mo>=</mo><msub><mi>V</mi><mtext>ext</mtext></msub><mo>−</mo><msub><mi>V</mi><mtext>cav</mtext></msub></math>.</li>
+    </ol>
+  </section>
 
   <!-- FILA A: discos + datos -->
   <section class="row row-a">
@@ -71,11 +116,12 @@
       <div class="split">
         <figure class="fig">
           <svg id="svg-discs" viewBox="0 0 296 238" role="img" aria-label="Sección de la esfera con discos de Riemann"></svg>
-          <figcaption>Vista lateral: cada disco de espesor Δx y radio r(x*<sub>i</sub>) aparece como un rectángulo de altura 2r.</figcaption>
+          <figcaption>Sección 2D (plano xy): eje de integración x, límites −R y R. Cada disco (espesor Δx, radio r(x*<sub>i</sub>)) se ve como un rectángulo de altura 2r; la elipse es la sección A(x).</figcaption>
         </figure>
         <div class="math-col">
-          <p class="lead">Sección en x: <math><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></math>
-          ⇒ <math><mi>r</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msqrt><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></math></p>
+          <p class="lead">De <math><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup></math>, la sección en x es <math><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></math>
+          ⇒ <math><mi>r</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msqrt><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></math>
+          y <math><mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo></math>. Se suman las secciones de x = −R a x = R:</p>
           <math display="block" class="eq">
             <mi>V</mi><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>R</mi></mrow><mi>R</mi></msubsup><mi>π</mi><msup><mrow><mo>[</mo><mi>r</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>]</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>x</mi>
             <mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>R</mi></mrow><mi>R</mi></msubsup><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo><mi>d</mi><mi>x</mi>
@@ -85,7 +131,7 @@
             <mo>=</mo><mi>π</mi><mrow><mo>[</mo><mfrac><mrow><mn>2</mn><msup><mi>R</mi><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>−</mo><mrow><mo>(</mo><mo>−</mo><mfrac><mrow><mn>2</mn><msup><mi>R</mi><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>]</mo></mrow>
             <mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>R</mi><mn>3</mn></msup><mo>✓</mo>
           </math>
-          <p class="result">R = <b class="v-R">90</b> km → V<sub>esfera maciza</sub> = <b class="v-Vext">—</b> km³<br><span class="muted">Volumen de la esfera completa, no del material del casco (ver 02).</span></p>
+          <p class="result">R = <b class="v-R">90</b> km → V = ⁴⁄₃π·<span class="v-R">90</span>³ ≈ <b class="v-Vext">—</b> km³<br><span class="muted">Esfera maciza completa, no el material del casco (ver 02).</span></p>
           <p class="riemann">Suma de Riemann (punto medio), N = <b class="v-N">24</b>, <math><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>=</mo><mo>−</mo><mi>R</mi><mo>+</mo><mo>(</mo><mi>i</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>)</mo><mi>Δ</mi><mi>x</mi></math>:</p>
           <math display="block" class="eq eq-sm"><msub><mi>V</mi><mi>N</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mrow><mo>(</mo><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>)</mo></mrow><mn>2</mn></msup><mo>)</mo><mi>Δ</mi><mi>x</mi></math>
           <p class="riemann">V<sub>N</sub> = <b class="v-VN">—</b> km³ · error <b class="v-errpct">—</b>
@@ -95,24 +141,26 @@
     </article>
 
     <article class="card card-data">
-      <h2><span class="num">◈</span>Panel de datos · modelo actual</h2>
+      <h2><span class="num">V</span>Datos y supuestos</h2>
       <table class="data">
         <tbody>
           <tr><th>Radio exterior R</th><td><span class="v-R">—</span> km</td></tr>
           <tr><th>Diámetro exterior D = 2R</th><td><span class="v-D">—</span> km</td></tr>
           <tr><th>Radio interior r</th><td><span class="v-r">—</span> km</td></tr>
-          <tr><th>Espesor del casco t = R − r</th><td><span class="v-t">—</span> km</td></tr>
+          <tr><th>Espesor del casco t = R − r <span class="tag">supuesto</span></th><td><span class="v-t">—</span> km</td></tr>
           <tr class="sep"><th>Volumen de la esfera maciza ⁴⁄₃πR³</th><td><span class="v-Vext">—</span> km³</td></tr>
           <tr><th>Volumen de la cavidad ⁴⁄₃πr³</th><td><span class="v-Vcav">—</span> km³</td></tr>
           <tr><th>Volumen del material ⁴⁄₃π(R³ − r³)</th><td><span class="v-Vmat">—</span> km³</td></tr>
           <tr><th>Fracción de material</th><td><span class="v-frac">—</span></td></tr>
           <tr class="sep"><th>Volumen del reactor</th><td><span class="v-Vre">—</span> km³</td></tr>
-          <tr><th>Secciones de la aproximación N</th><td><span class="v-N">—</span></td></tr>
-          <tr><th>Suma de Riemann V<sub>N</sub></th><td><span class="v-VN">—</span> km³</td></tr>
-          <tr><th>Error |V<sub>N</sub> − V|</th><td><span class="v-errabs">—</span> km³ (<span class="v-errpct">—</span>)</td></tr>
         </tbody>
       </table>
-      <p class="note">Todos los valores se recalculan a partir de los parámetros actuales; ninguno está prefijado. Referencia: R = 90 km (D = 180 km), dentro del rango aproximado 80–100 km; no son medidas oficiales.</p>
+      <ul class="assume">
+        <li><b>R = 90 km (D = 180 km)</b>: referencia dentro del rango aprox. D ≈ 160–200 km; no es una dimensión oficial.</li>
+        <li>Esfera ideal y homogénea; trinchera, superláser y paneles no se descuentan.</li>
+        <li>Espesor t (13,5 km por defecto) y medidas del reactor: <b>ejemplos didácticos</b> ajustables.</li>
+      </ul>
+      <p class="note">Todas las cifras se recalculan en vivo a partir de los parámetros actuales; ninguna está prefijada.</p>
     </article>
   </section>
 
@@ -123,6 +171,7 @@
       <div class="split">
         <figure class="fig fig-sq">
           <svg id="svg-shell" viewBox="0 0 300 300" role="img" aria-label="Diagrama de corte del casco"></svg>
+            <p class="lead obs">Observación: dentro de la cavidad (|x| ≤ r) la arandela tiene área <b>constante</b> π(R² − r²); sólo los dos casquetes |x| &gt; r aportan discos macizos. La suma de ambas partes vuelve a dar ⁴⁄₃π(R³ − r³).</p>
         </figure>
         <div class="math-col">
           <p class="lead">Capa homogénea entre <math><mi>r</mi></math> y <math><mi>R</mi></math>, espesor <math><mi>t</mi><mo>=</mo><mi>R</mi><mo>−</mo><mi>r</mi></math>. Por arandelas:</p>
@@ -139,10 +188,8 @@
           <math display="block" class="eq">
             <mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>R</mi><mn>3</mn></msup><mo>−</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>r</mi><mn>3</mn></msup><mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>3</mn></msup><mo>−</mo><msup><mi>r</mi><mn>3</mn></msup><mo>)</mo>
           </math>
-          <p class="result">R = <b class="v-R">—</b>, r = <b class="v-r">—</b>, t = <b class="v-t">—</b> km<br>
+          <p class="result">R = <b class="v-R">—</b> (exterior), r = <b class="v-r">—</b> (interior), t = <b class="v-t">—</b> km <span class="muted">(t supuesto)</span><br>
             V<sub>mat</sub> = <b class="v-Vmat">—</b> km³ <span class="muted">(capa fina 4πR²t ≈ <span class="v-Vthin">—</span>)</span></p>
-          <p class="lead obs">Observación: dentro de la cavidad (|x| ≤ r) la arandela tiene área <b>constante</b> π(R² − r²); sólo los dos casquetes |x| &gt; r aportan discos macizos. La suma de ambas partes vuelve a dar ⁴⁄₃π(R³ − r³).</p>
-          <p class="lead obs">Idealización: el casco se modela como una capa esférica homogénea de espesor uniforme t; la trinchera, el superláser y los módulos no se descuentan.</p>
         </div>
       </div>
     </article>
@@ -157,9 +204,9 @@
           <canvas id="reactor-canvas" aria-label="Modelo 3D del reactor"></canvas>
           <figcaption>Sólido generado por el mismo perfil</figcaption>
         </figure>
+        <p class="lead r-lead">Perfil <math><mi>ρ</mi><mo>(</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>a</mi><mo>(</mo><mn>1</mn><mo>−</mo><mo>|</mo><mi>y</mi><mo>|</mo><mo>/</mo><mi>h</mi><mo>)</mo></math> girando sobre el eje y; hueco axial de radio <math><mi>b</mi></math>, hasta <math><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo><mi>h</mi><mo>(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo>/</mo><mi>a</mi><mo>)</mo></math>.</p>
       </div>
       <div class="math-col">
-        <p class="lead">Perfil <math><mi>ρ</mi><mo>(</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>a</mi><mo>(</mo><mn>1</mn><mo>−</mo><mo>|</mo><mi>y</mi><mo>|</mo><mo>/</mo><mi>h</mi><mo>)</mo></math> girando sobre el eje y; hueco axial de radio <math><mi>b</mi></math>, hasta <math><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo><mi>h</mi><mo>(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo>/</mo><mi>a</mi><mo>)</mo></math>.</p>
         <math display="block" class="eq">
           <msub><mi>V</mi><mtext>r</mtext></msub><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><msub><mi>y</mi><mn>1</mn></msub></msubsup><mrow><mo>[</mo><msup><mi>a</mi><mn>2</mn></msup><msup><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mfrac><mi>y</mi><mi>h</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>b</mi><mn>2</mn></msup><mo>]</mo></mrow><mi>d</mi><mi>y</mi>
           <mo>=</mo><mn>2</mn><mi>π</mi><mi>h</mi><mrow><mo>(</mo><mfrac><msup><mi>a</mi><mn>2</mn></msup><mn>3</mn></mfrac><mo>−</mo><msup><mi>b</mi><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mn>2</mn><msup><mi>b</mi><mn>3</mn></msup></mrow><mrow><mn>3</mn><mi>a</mi></mrow></mfrac><mo>)</mo></mrow>
@@ -170,6 +217,17 @@
     </article>
   </section>
 
+  <section class="card card-concl" aria-labelledby="concl-h">
+    <h2 id="concl-h"><span class="num">VI</span>Conclusiones</h2>
+    <ol class="concl">
+      <li><b>Modelo geométrico.</b> Aproximar la estación por una esfera de R = <span class="v-R">90</span> km reduce un objeto complejo a una figura con ecuación exacta; los detalles del casco se tratan como desviaciones pequeñas.</li>
+      <li><b>Integral y secciones.</b> Al integrar A(x) = π(R² − x²) entre −R y R se obtiene ⁴⁄₃πR³ = <span class="v-Vext">—</span> km³. Con N = <span class="v-N">24</span> discos el error es <span class="v-errpct">—</span> y baja como 1/(2N²): la integral es el límite de los discos.</li>
+      <li><b>Exterior ≠ material.</b> Con t = <span class="v-t">—</span> km el material ocupa <span class="v-Vmat">—</span> km³, solo el <span class="v-fracpct">—</span> del volumen exterior. Usar ⁴⁄₃πR³ como «material» lo sobrestimaría <span class="v-ratio">—</span> veces.</li>
+      <li><b>Simulación 3D.</b> Ver el corte, la cavidad y los discos en el sólido conecta la sección 2D que se integra con el volumen que resulta; variar N muestra la convergencia en tiempo real.</li>
+      <li><b>Limitaciones.</b> La estación es ficticia (y estaba inconclusa en la película). Sus dimensiones son aproximaciones de referencia y el interior es una interpretación propia: los resultados valen para el modelo, no como medidas reales.</li>
+    </ol>
+  </section>
+
   <footer class="p-foot">
     <ul class="legend">
       <li><i class="sw sw-hull"></i>Casco (esfera ideal R)</li>
@@ -178,18 +236,8 @@
       <li><i class="sw sw-disc"></i>Discos / integración</li>
       <li><i class="sw sw-core"></i>Reactor y núcleo</li>
     </ul>
-    <p class="disclaimer">La esfera de radio R aproxima el casco exterior: paneles, trinchera y superláser no forman parte de la esfera perfecta.
-      Dimensiones de la segunda Estrella de la Muerte: aproximaciones de referencia para el modelo matemático (D ≈ 160–200 km; R = 90 km), no medidas oficiales exactas. La geometría interior es una interpretación artística y matemática original.
+    <p class="disclaimer">Dimensiones de la segunda Estrella de la Muerte: aproximaciones de referencia para el modelo matemático (D ≈ 160–200 km; R = 90 km), no medidas oficiales exactas. La geometría interior es una interpretación artística y matemática original.
       Obra de divulgación no oficial; Star Wars es marca de Lucasfilm Ltd.</p>
-    <section class="team" aria-labelledby="team-h">
-      <h2 id="team-h">INTEGRANTES</h2>
-      <ul>
-        <li>Stefano Portugal Monteagudo</li>
-        <li>Bruno Ore Alarcón</li>
-        <li>Sebastián Uscamayta Checa</li>
-        <li>Michael Jesús Ticona Huamán</li>
-      </ul>
-    </section>
   </footer>
 </div></main>
 

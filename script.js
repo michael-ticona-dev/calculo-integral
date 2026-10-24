@@ -138,6 +138,7 @@
     setAll('v-R', nf(R, 1)); setAll('v-D', nf(2 * R, 0)); setAll('v-r', nf(r, 1)); setAll('v-t', nf(t, 1));
     setAll('v-Vext', nf(Vext, 1)); setAll('v-Vcav', nf(Vcav, 1)); setAll('v-Vmat', nf(Vmat, 1));
     setAll('v-frac', nf((Vmat / Vext) * 100, 2) + ' % del volumen exterior');
+    setAll('v-fracpct', nf((Vmat / Vext) * 100, 1) + ' %'); setAll('v-ratio', nf(Vext / Vmat, 1));
     setAll('v-Vthin', nf(4 * PI * R * R * t, 0) + ' km³');
     setAll('v-Vre', nf(Vre, 1)); setAll('v-Vre-num', nf(VreNum, 1) + ' km³');
     setAll('v-a', nf(P.a, 1)); setAll('v-h', nf(P.h, 1)); setAll('v-b', nf(P.b, 2));
