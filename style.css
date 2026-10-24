@@ -326,7 +326,7 @@ svg .t-math { font-family: var(--f-math); font-style: italic; }
 /* Pie */
 .p-foot {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 2cqw;
   align-items: center;
   border-top: 1px solid var(--line-2);
@@ -341,6 +341,9 @@ svg .t-math { font-family: var(--f-math); font-style: italic; }
 .sw-disc { background: var(--amber); }
 .sw-core { background: var(--green); }
 .disclaimer { margin: 0; font-size: 0.74cqw; color: var(--muted); line-height: 1.45; }
+.team { border-left: 1px solid var(--line-2); padding-left: 1.6cqw; }
+.team h2 { margin: 0 0 0.35cqw; font-family: var(--f-title); font-weight: 700; font-size: 0.78cqw; letter-spacing: 0.24em; color: var(--cyan); }
+.team ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, auto); gap: 0.2cqw 1.4cqw; font-size: 0.8cqw; color: var(--ink); }
 
 /* ─────────────────────────── CONSOLA ─────────────────────────── */
 .dock {

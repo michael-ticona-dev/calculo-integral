@@ -38,8 +38,8 @@
 
   /* ───────────────────────── estado ───────────────────────── */
   const P = {
-    R: 60, t: 9, cut: 0.2,
-    a: 13, h: 22, b: 2.5,
+    R: 90, t: 13.5, cut: 0.2,   // 2.ª Estrella de la Muerte: R de referencia 90 km (D = 180 km; rango aprox. 80–100 km)
+    a: 19.5, h: 33, b: 3.75,
     x: 0.35, N: 24, build: 1,
     module: 'reactor', isolate: false,
     mode: 'A', rotate: true,
@@ -135,7 +135,7 @@
     const VN = riemann(R, P.N), err = Math.abs(VN - Vext), errRel = (err / Vext) * 100;
     const Vre = Vreactor(), VreNum = VreactorSimpson();
     cache = { Vext, Vcav, Vmat, VN, err, errRel, Vre };
-    setAll('v-R', nf(R, 1)); setAll('v-r', nf(r, 1)); setAll('v-t', nf(t, 1));
+    setAll('v-R', nf(R, 1)); setAll('v-D', nf(2 * R, 0)); setAll('v-r', nf(r, 1)); setAll('v-t', nf(t, 1));
     setAll('v-Vext', nf(Vext, 1)); setAll('v-Vcav', nf(Vcav, 1)); setAll('v-Vmat', nf(Vmat, 1));
     setAll('v-frac', nf((Vmat / Vext) * 100, 2) + ' % del volumen exterior');
     setAll('v-Vthin', nf(4 * PI * R * R * t, 0) + ' km³');
@@ -176,7 +176,7 @@
   function updateHeroFormula() {
     const el = $('#hero-formula'); if (!el || !cache.Vext) return;
     const m = P.mode; let k, f, v;
-    if (m === 'A') { k = 'VOLUMEN EXTERIOR · ESFERA IDEAL'; f = MATH.sphere; v = '= ' + nf(cache.Vext, 1) + ' km³   (R = ' + nf(P.R, 1) + ' km)'; }
+    if (m === 'A') { k = 'VOLUMEN DE LA ESFERA MACIZA (NO DEL MATERIAL)'; f = MATH.sphere; v = '= ' + nf(cache.Vext, 1) + ' km³   (R = ' + nf(P.R, 1) + ' km)'; }
     else if (m === 'B') { k = 'VOLUMEN DEL MATERIAL · CASCO'; f = MATH.shell; v = '= ' + nf(cache.Vmat, 1) + ' km³   (t = ' + nf(P.t, 1) + ' km)'; }
     else if (m === 'C') {
       const vols = moduleVolumes(), L = layout();

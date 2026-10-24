@@ -25,9 +25,10 @@
     <h1 class="p-title">DEATH STAR</h1>
     <p class="p-sub"><em>Geometría, integración y volumen de una superestructura espacial.</em></p>
     <dl class="p-meta">
-      <div><dt>Modelo</dt><dd>Esfera ideal · radio <span class="v-R">60</span> km</dd></div>
+      <div><dt>Modelo · 2.ª Estrella de la Muerte</dt><dd>Esfera ideal · R = <span class="v-R">90</span> km · D = <span class="v-D">180</span> km</dd></div>
+      <div><dt>Referencia aproximada</dt><dd>D ≈ 160–200 km · R ≈ 80–100 km</dd></div>
       <div><dt>Eje de integración</dt><dd>x ∈ [−R, R]</dd></div>
-      <div><dt>Unidades</dt><dd>km del modelo (ficticios)</dd></div>
+      <div><dt>Unidades</dt><dd>km (aproximación de referencia, no oficial)</dd></div>
     </dl>
   </header>
 
@@ -84,7 +85,7 @@
             <mo>=</mo><mi>π</mi><mrow><mo>[</mo><mfrac><mrow><mn>2</mn><msup><mi>R</mi><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>−</mo><mrow><mo>(</mo><mo>−</mo><mfrac><mrow><mn>2</mn><msup><mi>R</mi><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>]</mo></mrow>
             <mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mi>π</mi><msup><mi>R</mi><mn>3</mn></msup><mo>✓</mo>
           </math>
-          <p class="result">R = <b class="v-R">60</b> km → V = <b class="v-Vext">—</b> km³</p>
+          <p class="result">R = <b class="v-R">90</b> km → V<sub>esfera maciza</sub> = <b class="v-Vext">—</b> km³<br><span class="muted">Volumen de la esfera completa, no del material del casco (ver 02).</span></p>
           <p class="riemann">Suma de Riemann (punto medio), N = <b class="v-N">24</b>, <math><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>=</mo><mo>−</mo><mi>R</mi><mo>+</mo><mo>(</mo><mi>i</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>)</mo><mi>Δ</mi><mi>x</mi></math>:</p>
           <math display="block" class="eq eq-sm"><msub><mi>V</mi><mi>N</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mi>π</mi><mo>(</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mrow><mo>(</mo><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><mo>)</mo></mrow><mn>2</mn></msup><mo>)</mo><mi>Δ</mi><mi>x</mi></math>
           <p class="riemann">V<sub>N</sub> = <b class="v-VN">—</b> km³ · error <b class="v-errpct">—</b>
@@ -98,11 +99,12 @@
       <table class="data">
         <tbody>
           <tr><th>Radio exterior R</th><td><span class="v-R">—</span> km</td></tr>
+          <tr><th>Diámetro exterior D = 2R</th><td><span class="v-D">—</span> km</td></tr>
           <tr><th>Radio interior r</th><td><span class="v-r">—</span> km</td></tr>
           <tr><th>Espesor del casco t = R − r</th><td><span class="v-t">—</span> km</td></tr>
-          <tr class="sep"><th>Volumen exterior ⁴⁄₃πR³</th><td><span class="v-Vext">—</span> km³</td></tr>
+          <tr class="sep"><th>Volumen de la esfera maciza ⁴⁄₃πR³</th><td><span class="v-Vext">—</span> km³</td></tr>
           <tr><th>Volumen de la cavidad ⁴⁄₃πr³</th><td><span class="v-Vcav">—</span> km³</td></tr>
-          <tr><th>Volumen del material</th><td><span class="v-Vmat">—</span> km³</td></tr>
+          <tr><th>Volumen del material ⁴⁄₃π(R³ − r³)</th><td><span class="v-Vmat">—</span> km³</td></tr>
           <tr><th>Fracción de material</th><td><span class="v-frac">—</span></td></tr>
           <tr class="sep"><th>Volumen del reactor</th><td><span class="v-Vre">—</span> km³</td></tr>
           <tr><th>Secciones de la aproximación N</th><td><span class="v-N">—</span></td></tr>
@@ -110,7 +112,7 @@
           <tr><th>Error |V<sub>N</sub> − V|</th><td><span class="v-errabs">—</span> km³ (<span class="v-errpct">—</span>)</td></tr>
         </tbody>
       </table>
-      <p class="note">Todos los valores se recalculan a partir de los parámetros actuales; ninguno está prefijado.</p>
+      <p class="note">Todos los valores se recalculan a partir de los parámetros actuales; ninguno está prefijado. Referencia: R = 90 km (D = 180 km), dentro del rango aproximado 80–100 km; no son medidas oficiales.</p>
     </article>
   </section>
 
@@ -177,8 +179,17 @@
       <li><i class="sw sw-core"></i>Reactor y núcleo</li>
     </ul>
     <p class="disclaimer">La esfera de radio R aproxima el casco exterior: paneles, trinchera y superláser no forman parte de la esfera perfecta.
-      Dimensiones ilustrativas en km del modelo, no oficiales. La geometría interior es una interpretación artística y matemática original.
+      Dimensiones de la segunda Estrella de la Muerte: aproximaciones de referencia para el modelo matemático (D ≈ 160–200 km; R = 90 km), no medidas oficiales exactas. La geometría interior es una interpretación artística y matemática original.
       Obra de divulgación no oficial; Star Wars es marca de Lucasfilm Ltd.</p>
+    <section class="team" aria-labelledby="team-h">
+      <h2 id="team-h">INTEGRANTES</h2>
+      <ul>
+        <li>Stefano Portugal Monteagudo</li>
+        <li>Bruno Ore Alarcón</li>
+        <li>Sebastián Uscamayta Checa</li>
+        <li>Michael Jesús Ticona Huamán</li>
+      </ul>
+    </section>
   </footer>
 </div></main>
 
@@ -199,9 +210,9 @@
   <section class="ctl">
     <h3>Casco esférico</h3>
     <label class="slider"><span>Radio exterior R</span><output id="o-R"></output>
-      <input type="range" id="in-R" min="20" max="150" step="1" value="60"></label>
+      <input type="range" id="in-R" min="80" max="100" step="1" value="90"></label>
     <label class="slider"><span>Espesor t</span><output id="o-t"></output>
-      <input type="range" id="in-t" min="1" max="40" step="0.5" value="9"></label>
+      <input type="range" id="in-t" min="1" max="60" step="0.5" value="13.5"></label>
   </section>
 
   <section class="ctl">
@@ -213,11 +224,11 @@
   <section class="ctl">
     <h3>Reactor (modo C)</h3>
     <label class="slider"><span>Radio ecuatorial a</span><output id="o-a"></output>
-      <input type="range" id="in-a" min="3" max="20" step="0.5" value="13"></label>
+      <input type="range" id="in-a" min="3" max="30" step="0.5" value="19.5"></label>
     <label class="slider"><span>Semialtura h</span><output id="o-h"></output>
-      <input type="range" id="in-h" min="4" max="40" step="0.5" value="22"></label>
+      <input type="range" id="in-h" min="4" max="60" step="0.5" value="33"></label>
     <label class="slider"><span>Radio del hueco b</span><output id="o-b"></output>
-      <input type="range" id="in-b" min="0" max="10" step="0.25" value="2.5"></label>
+      <input type="range" id="in-b" min="0" max="16" step="0.25" value="3.75"></label>
   </section>
 
   <section class="ctl">
